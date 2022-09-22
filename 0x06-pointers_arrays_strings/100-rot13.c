@@ -3,22 +3,44 @@
 /**
  * rot13 - rotate characters 13 places in the alphabet
  * @s: string
+ *
  * Return: string `s` rotated
  */
 
-char *rot13(char *s)
+char *rot13(char *str)
 {
-	int i;
-	char storeh[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char storel[] = "nopqrstuvwxyzabcdefghijklm";
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (str[i] != '\0')
 	{
-		if ((s[i] > 64 && s[i] < 91) || (s[i] > 96 && s[i] < 123))
-		{
-			s[i] = (s[i] - 65 > 25) ?
-				storel[s[i] - 97] : storeh[s[i] - 65];
-		}
+		str[i] = transform_2(str[i]);
+		i++;
 	}
-	return (s);
+	return (str);
+}
+
+/**
+ * transform_2 - helper function to map a letter with its rot1 encoding
+ * @x: char to be encoded
+ *
+ * Return: the encoded char
+ */
+
+char transform_2(char x)
+{
+	char one[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char two[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i = 0;
+	char replacement = x;
+
+	while (i < 52)
+	{
+		if (x == one[i])
+		{
+			replacement = two[i];
+			break;
+		}
+		i++;
+	}
+	return (replacement);
 }

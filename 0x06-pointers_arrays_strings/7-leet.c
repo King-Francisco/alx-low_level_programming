@@ -3,26 +3,44 @@
 /**
  * leet - encode a string into 1337
  * @s: string
- * Return: encoded string `s`
+ *
+ * Return: address of the encoded string
  */
 
-char *leet(char *s)
+char *leet(char *str)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (str[i] != '\0')
 	{
-		while (s[i] == 'a' || s[i] == 'A')
-			s[i] = '4';
-		while (s[i] == 'e' || s[i] == 'E')
-			s[i] = '3';
-		while (s[i] == 'o' || s[i] == 'O')
-			s[i] = '0';
-		while (s[i] == 't' || s[i] == 'T')
-			s[i] = '7';
-		while (s[i] == 'l' || s[i] == 'L')
-			s[i] = '1';
+		str[i] = transform(str[i]);
+		i++;
 	}
+	return (str);
+}
 
-	return (s);
+/**
+ * transform - helper function to map a letter with its leet encoding
+ * @x: char to be encoded
+ *
+ * Return: the encoded char
+ */
+
+char transform(char x)
+{
+	char mapping_low[8] = {'o', 'l', '\0', 'e', 'a', '\0', '\0', 't'};
+	char mapping_upper[8] = {'O', 'L' '\0', 'E', 'A', '\0', '\0', 'T'};
+	int i = 0;
+	char replacement = x;
+
+	while (i < 8)
+	{
+		if (x == mapping_low[i] || x == mapping_upper[i])
+		{
+			replacement = i + '0';
+			break;
+		}
+		i++;
+	}
+	return (replacement);
 }
