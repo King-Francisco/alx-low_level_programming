@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * _strncat - concatenate two stings
- * @dest: string
- * @src: string
- * @n: number of elements to concatenate in
- * Return: pointer to resulting `dest`
+ * _strncat - concatenate two stings but add inputted number of bytes
+ * @dest: string to be appended upon
+ * @src: string to be completed at the end of dest
+ * @n: integer parameter to compare index to
+ * Return: returns new concatenated string
  */
 
-char *strncat(char *dest, char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
 
 	int index = 0, dest_len = 0;

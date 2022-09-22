@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * leet - encode a string into 1337
- * @s: string
+ * leet - leet encoder
+ * @str: string to be encoded
  *
  * Return: address of the encoded string
  */
@@ -20,7 +20,7 @@ char *leet(char *str)
 }
 
 /**
- * transform - helper function to map a letter with its leet encoding
+ * transform - helper function to map a letter with it's leet encoding
  * @x: char to be encoded
  *
  * Return: the encoded char
@@ -29,7 +29,7 @@ char *leet(char *str)
 char transform(char x)
 {
 	char mapping_low[8] = {'o', 'l', '\0', 'e', 'a', '\0', '\0', 't'};
-	char mapping_upper[8] = {'O', 'L' '\0', 'E', 'A', '\0', '\0', 'T'};
+	char mapping_upper[8] = {'O', 'L', '\0', 'E', 'A', '\0', '\0', 'T'};
 	int i = 0;
 	char replacement = x;
 
