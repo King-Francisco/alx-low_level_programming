@@ -7,7 +7,7 @@
  * Return: address of the encoded string
  */
 
-char *leet(char *str)
+char *leet(char *s)
 {
 	int i = 0;
 
